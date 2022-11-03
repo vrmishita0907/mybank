@@ -1,0 +1,61 @@
+.heading {
+    padding: 5px;
+    width: 400px;
+    text-align: center;
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+
+}
+
+.class1 {
+    border: 1px solid;
+    padding: 25px;
+    width: 260px;
+}
+.class1,input{
+    margin-bottom: 8px;
+}
+
+/* .class2 {
+
+
+} */
+
+table {
+    text-align: center;
+    border: 1px solid;
+    /* border-style: ridge; */
+}
+
+thead {
+
+    text-align: center;
+    border: 1px solid;
+    padding: 10%;
+
+}
+
+
+tr {
+
+    border: 1px solid;
+
+}
+
+th {
+
+    padding: 15px;
+    border: 1px solid;
+    background-color: skyblue;
+    color: black;
+    
+
+}
+
+
+
+td {
+    border: 1px double;
+    padding: 10px;
+}
