@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" style="text-align: -webkit-center; padding-top: 70px;">
+        <div class="class1">
+            <h2 style="padding-bottom: 25px;"> -Student Marksheet- </h2>
+            <input type="text" placeholder="Name" id="name" value="" /><br />
+            <input type="tel" placeholder="Hindi Marks" id="hindi" value="" /><br />
+            <p id="err"></p>
+            <input type="tel" placeholder="English Marks" id="english" value="" /><br />
+            <p id="err1"></p>
+            <input type="tel" placeholder="Maths Marks" id="maths" value="" /><br />
+            <p id="err2"></p>
+            <button onclick="submit()"
+                style="margin-top: 10px; border-radius: 10%; background-color: skyblue; width: 100px;">Submit</button>
+        </div>
+
+
+        <div class="class2" style="text-align: -webkit-center;">
+            <table id="display">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Hindi</th>
+                        <th>English</th>
+                        <th>Maths</th>
+                        <th>Total</th>
+                        <th>Percentage</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <!-- <tr>
+                    <td id="name2"></td>
+                    <td id="hindi2"></td>
+                    <td id="english2"></td>
+                    <td id="maths2"></td>
+                    <td id="total"></td>
+                    <td id="percentage"></td>
+                    <td id="result"></td>
+                </tr> -->
+            </table>
+
+        </div>
+    </div>
+
+    <script>
+        function submit() {
+
+
+            let name, hindi, english, maths, total, percentage, result;
+            // suppArray = [];
+            name = document.getElementById("name").value;
+            // document.getElementById("name2").innerHTML = name;
+            //   console.log(name);
+            hindi = parseInt(document.getElementById("hindi").value);
+            // document.getElementById("hindi2").innerHTML = hindi;
+            //   console.log(typeof hindi);
+            english = parseInt(document.getElementById("english").value);
+            // document.getElementById("english2").innerHTML = english;
+            //   console.log(english);
+            maths = parseInt(document.getElementById("maths").value);
+            // document.getElementById("maths2").innerHTML = maths;
+            //   console.log(maths);
+            total = hindi + english + maths;
+            // total = parseInt(document.getElementById("total").innerHTML = total);
+            percentage = total / 3;
+            // total = parseInt(document.getElementById("percentage").innerHTML = percentage.toFixed(2) + "%");
+
+
+            if ((hindi < 33 && english < 33) || (english < 33 && maths < 33) || (maths < 33 && hindi < 33)) {
+                result = 'Fail';
+            }
+            else if(hindi<33||english<33||maths<33){
+                result="supply"
+            }
+            
+            else if (percentage >= 75) {
+                result = 'Pass with Distinction';
+            }
+            else if (percentage > 33) {
+                result = 'pass';
+            }
+            else{
+                result="fail"
+            }
+
+
+
+
+            // else if (hindi<33 || english<33 || maths<33 ){
+            //     result = ' '
+            // }
+
+            // if (suppArray.length >= 2) {
+            //     result = `fail with supplimentary in ${suppArray.length} subjects`
+            // }
+            // else if (percentage > 33 && suppArray.length === 0 || suppArray.length === 1) {
+            //     result = 'Pass';
+            // }
+            // // let cond = true;
+            // else if (suppArray.length !== 0) {
+            //     result = 'Fail';
+            // }
+
+            // document.getElementById("result").innerHTML = result
+            // console.log(result);
+            debugger
+
+
+            let fromValid = true;
+            if (hindi < 0 || hindi > 100) {
+                document.getElementById("err").innerHTML = "enter number between 1 to 100";
+                fromValid = false;
+            }
+            else if (hindi > 0 || hindi < 100) {
+                document.getElementById("err").innerHTML = " ";
+                fromValid = true;
+            }
+
+            if (english < 0 || english > 100) {
+                document.getElementById("err1").innerHTML = "enter number between 1 to 100";
+                fromValid = false;
+            }
+            else if (english > 0 || english < 100) {
+                document.getElementById("err1").innerHTML = "";
+                fromValid = true;
+            }
+            if (maths < 0 || maths > 100) {
+                document.getElementById("err2").innerHTML = "enter number between 1 to 100";
+                fromValid = false;
+            }
+            else if (maths > 0 || maths < 100) {
+                document.getElementById("err2").innerHTML = "";
+                fromValid = true;
+            }
+
+
+            if (fromValid === true) 
+            {
+                let row = 1;
+                let display = document.getElementById("display");
+                let newRow = display.insertRow(row);
+
+                let cell1 = newRow.insertCell(0);
+                let cell2 = newRow.insertCell(1);
+                let cell3 = newRow.insertCell(2);
+                let cell4 = newRow.insertCell(3);
+                let cell5 = newRow.insertCell(4);
+                let cell6 = newRow.insertCell(5);
+                let cell7 = newRow.insertCell(6);
+
+                cell1.innerHTML = name;
+                cell2.innerHTML = hindi;
+                cell3.innerHTML = english;
+                cell4.innerHTML = maths;
+                cell5.innerHTML = total;
+                cell6.innerHTML = percentage.toFixed(2) + "%";
+                cell7.innerHTML = result;
+
+
+                row++;
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
